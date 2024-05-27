@@ -3,7 +3,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-uap-pemlan-2024.iml
+/uap-pemlan-2024.iml
 
 ### Eclipse ###
 .apt_generated
