@@ -6,6 +6,7 @@ public class User {
     private final String username;
     private final String password;
     private final boolean isAdmin;
+    private final Map<String, Pesanan> pesanan = new HashMap<>();
 
     public User(String username, String password, boolean isAdmin) {
         this.username = username;
@@ -34,6 +35,15 @@ public class User {
 
     public static Map<String, User> getUsers() {
         return users;
+    }
+
+    public void addPesanan(Film film, int kuantitas) {
+        Pesanan newPesanan = new Pesanan(film, kuantitas);
+        pesanan.put(film.getName(), newPesanan);
+    }
+
+    public Map<String, Pesanan> getPesanan() {
+        return pesanan;
     }
 }
 
