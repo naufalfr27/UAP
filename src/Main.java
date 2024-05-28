@@ -4,34 +4,43 @@ public class Main {
     static AksiAdmin aksiAdmin = new AksiAdmin();
     static AksiUser aksiUser = new AksiUser();
     static Scanner scanner = new Scanner(System.in);
+    static boolean run = true;
+    static boolean isLogin = false;
 
     public static void main(String[] args) {
         User.addUser("user", "123", false);
         User.addUser("admin", "123", true);
 
-        System.out.println(STR."||\{"=".repeat(40)}||");
-        System.out.println(STR."||\{" ".repeat(14)}Bioskop DSI\{" ".repeat(15)}||");
-        System.out.println(STR."||\{"=".repeat(40)}||");
+        while (run) {
+            Aksi.welcome();
+            int Aksi = scanner.nextInt();
 
-        while (true) {
-            System.out.println("Silakan login >_<");
-            System.out.print("Username: ");
-            String username = scanner.next();
-            System.out.print("Password: ");
-            String password = scanner.next();
+            if (Aksi == 1) {
+                while (!isLogin) {
+                    System.out.println("Silakan login >_<");
+                    System.out.print("Username: ");
+                    String username = scanner.next();
+                    System.out.print("Password: ");
+                    String password = scanner.next();
 
-            User user = authenticate(username, password);
+                    User user = authenticate(username, password);
 
-            if (user != null) {
-                Akun.login(user);
-                System.out.println(STR."Selamat datang \{Akun.getCurrentUser().getUsername()}");
-                if (Akun.getCurrentUser().isAdmin()) {
-                    handleAksiAdmin();
-                } else {
-                    handleAksiUser();
+                    if (user != null) {
+                        isLogin = true;
+                        Akun.login(user);
+                        System.out.println(STR."Selamat datang \{Akun.getCurrentUser().getUsername()}");
+                        if (Akun.getCurrentUser().isAdmin()) {
+                            handleAksiAdmin();
+                        } else {
+                            handleAksiUser();
+                        }
+                    } else {
+                        System.out.println("Username atau password salah. Silakan coba lagi.");
+                    }
                 }
+                isLogin = false;
             } else {
-                System.out.println("Username atau password salah. Silakan coba lagi.");
+                run = false;
             }
         }
     }

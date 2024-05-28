@@ -22,4 +22,4 @@ Jika stok tiket untuk suatu film habis, maka film tersebut tidak dapat dipesan o
 ## Struktur Kelas
 Diagram berikut menunjukkan struktur kelas yang digunakan dalam aplikasi ini:
 
-<img src="classdiagram.png" width="2528" alt="Class Diagram"/>
+<img src="classdiagram.png" width="2348" alt="Class Diagram"/>
