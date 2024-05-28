@@ -6,12 +6,22 @@ public class User {
     private final String username;
     private final String password;
     private final boolean isAdmin;
+    private double saldo;
     private final Map<String, Pesanan> pesanan = new HashMap<>();
 
-    public User(String username, String password, boolean isAdmin) {
+    public User(String username, String password, boolean isAdmin, double saldo) {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+        this.saldo = saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 
     public String getUsername() {
@@ -26,9 +36,9 @@ public class User {
         return isAdmin;
     }
 
-    public static void addUser(String username, String password, boolean isAdmin) {
+    public static void addUser(String username, String password, boolean isAdmin, double saldo) {
         if (!users.containsKey(username)) {
-            User newUser = new User(username, password, isAdmin);
+            User newUser = new User(username, password, isAdmin, saldo);
             users.put(username, newUser);
         }
     }

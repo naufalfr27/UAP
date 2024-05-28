@@ -8,8 +8,8 @@ public class Main {
     static boolean isLogin = false;
 
     public static void main(String[] args) {
-        User.addUser("user", "123", false);
-        User.addUser("admin", "123", true);
+        User.addUser("user", "123", false, 0);
+        User.addUser("admin", "123", true, 100000);
 
         while (run) {
             Aksi.welcome();
@@ -28,7 +28,7 @@ public class Main {
                     if (user != null) {
                         isLogin = true;
                         Akun.login(user);
-                        System.out.println(STR."Selamat datang \{Akun.getCurrentUser().getUsername()}");
+                        System.out.println("Selamat datang " + Akun.getCurrentUser().getUsername());
                         if (Akun.getCurrentUser().isAdmin()) {
                             handleAksiAdmin();
                         } else {
