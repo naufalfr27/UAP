@@ -8,7 +8,7 @@ public class Main {
     static boolean isLogin = false;
 
     public static void main(String[] args) {
-        User.addUser("user", "123", false, 0);
+        User.addUser("user", "123", false, 100000);
         User.addUser("admin", "123", true, 100000);
 
         while (run) {
@@ -58,13 +58,14 @@ public class Main {
             aksiUser.tampilanAksi();
             switch (scanner.nextInt()) {
                 case 1 -> aksiUser.pesanFilm();
-                case 2 -> aksiUser.lihatListFilm();
-                case 3 -> aksiUser.lihatPesanan();
-                case 4 -> {
+                case 2 -> aksiUser.lihatSaldo();
+                case 3 -> aksiUser.lihatListFilm();
+                case 4 -> aksiUser.lihatPesanan();
+                case 5 -> {
                     aksiUser.keluar();
                     return;
                 }
-                case 5 -> aksiUser.tutupAplikasi();
+                case 6 -> aksiUser.tutupAplikasi();
                 default -> System.out.println("Pilihan tidak valid");
             }
         }

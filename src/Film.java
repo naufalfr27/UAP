@@ -39,9 +39,9 @@ public class Film {
         if (!films.containsKey(name)) {
             Film newFilm = new Film(name, description, price, stock);
             films.put(name, newFilm);
-            System.out.println(STR."Film \{name} berhasil ditambahkan.");
+            System.out.println("Film " + name + " berhasil ditambahkan.");
         } else {
-            System.out.println(STR."Film \{name} sudah ada.");
+            System.out.println("Film " + name + " sudah ada.");
         }
     }
 

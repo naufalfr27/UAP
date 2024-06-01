@@ -26,6 +26,10 @@ public class AksiUser extends Aksi {
         // Implementasi melihat list film
     }
 
+    public void lihatSaldo() {
+        // Implementasi lihat Saldo
+    }
+
     public void pesanFilm() {
         // Implementasi pemesanan film
     }
