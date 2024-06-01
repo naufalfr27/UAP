@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class AksiAdmin extends Aksi {
     @Override
     public void tampilanAksi() {
@@ -23,9 +25,25 @@ public class AksiAdmin extends Aksi {
     @Override
     public void lihatListFilm() {
         // Implementasi melihat list film
+        System.out.println("Daftar Film: ");
+        for(Film film : Film.getFilms().values()){
+            System.out.println("Film: " +  film.getName() + "- Deskripsi: " +  film.getDescription() +  " - Harga: " + film.getPrice() + " - Stok: " + film.getStock());
+        }
+        // Menampilkan daftar film
     }
 
     public void tambahFilm() {
         // Implementasi menambahkan film
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nama Film: ");
+        String name = input.nextLine();
+        System.out.print("Deskripsi Film: ");
+        String description = input.nextLine();
+        System.out.print("Harga Tiket: ");
+        double price = input.nextDouble();
+        System.out.print("Stok Tiket: ");
+        int stock = input.nextInt();
+        Film.addFilm(name, description, price, stock);
+        // Metode untuk menambahkan film baru
     }
 }
